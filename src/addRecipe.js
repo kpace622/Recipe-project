@@ -24,8 +24,9 @@ const AddRecipe = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const newRecipe = {
-      recipe: recipeName.name
+      recipe: recipeName.recipe
     }
+    console.log(newRecipe)
     postNewRecipe(newRecipe)
   }
 
