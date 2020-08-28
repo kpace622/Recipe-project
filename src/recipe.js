@@ -20,8 +20,8 @@ const Recipe = () => {
     <div className='main-container'>
       <div className='recipe-container'>
         {recipes.map(item => {
-          return (
-            <RecipeCard info={item}/>
+          return ( 
+            <RecipeCard key={item.id} info={item}/>
           )
         })}
       </div>
