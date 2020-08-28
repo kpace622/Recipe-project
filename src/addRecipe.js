@@ -8,7 +8,7 @@ const initialRecipe = {
 const AddRecipe = () => {
   const [recipeName, setRecipeName] = useState(initialRecipe)
 
-  const postNewRecipe = (newRecipe) => {
+  const postNewRecipe = newRecipe => {
     axios.post('https://kp-recipe-project.herokuapp.com/recipes/addRecipe', newRecipe)
       .then(res => {
         console.log(res)
@@ -30,7 +30,7 @@ const AddRecipe = () => {
   }
 
   const handleChange = e => {
-    setRecipeName({ [e.target.name]: e.target.value})
+    setRecipeName({ ...recipeName, [e.target.name]: e.target.value})
   }
 
   return (
