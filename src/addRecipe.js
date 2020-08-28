@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const initialRecipe = {
+const initialForm = {
   recipe: ''
 }
 
 const AddRecipe = () => {
-  const [recipeName, setRecipeName] = useState(initialRecipe)
+  const [formValue, setFormValue] = useState(initialForm)
 
   const postNewRecipe = newRecipe => {
     axios.post('https://kp-recipe-project.herokuapp.com/recipes/addRecipe', newRecipe)
@@ -16,22 +16,20 @@ const AddRecipe = () => {
       .catch(err => {
         console.log(err)
       })
-      .finally(() => {
-        setRecipeName(initialRecipe)
-      })
   }
 
   const handleSubmit = e => {
     e.preventDefault();
     const newRecipe = {
-      recipe: recipeName.recipe
+      recipe: formValue.recipe
     }
     console.log(newRecipe)
     postNewRecipe(newRecipe)
+    setFormValue(initialForm)
   }
 
   const handleChange = e => {
-    setRecipeName({ ...recipeName, [e.target.name]: e.target.value})
+    setFormValue({ ...formValue, [e.target.name]: e.target.value})
   }
 
   return (
@@ -40,7 +38,7 @@ const AddRecipe = () => {
       <label>
         <input 
         type='text'
-        value={recipeName.name}
+        value={formValue.recipe}
         name='recipe'
         onChange={handleChange}
         />
