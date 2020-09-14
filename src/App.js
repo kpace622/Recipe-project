@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="App">
       <Route >
-        <Navbar/>
+        <div className='nav-header'>
+          <Navbar/>
+        </div>
       </Route>
 
       <Route >

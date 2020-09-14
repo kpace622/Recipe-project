@@ -4,7 +4,7 @@ const Navbar = () => {
 
   return (
     <div className='navbar'>
-      <h1>Recipe Project!</h1>
+      <h1 className='recipeTitle'>Recipe Project!</h1>
     </div>
   )
 }
