@@ -4,6 +4,7 @@ import Recipe from './recipe'
 import Navbar from './navbar';
 import AddRecipe from './addRecipe';
 import { Route } from 'react-router-dom';
+import Slider from './slider';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
       <Route >
         <Recipe />
+        <Slider />
       </Route>
 
       <AddRecipe />
