@@ -2,6 +2,7 @@ body {
   background-color: #fefae0;
   width: 80%;
   margin: 0 auto;
+  font-family: 'Indie Flower', cursive;
 }
 
 .recipe-container {
@@ -37,6 +38,8 @@ body {
 .navbar {
   display: flex;
   justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   height: 50vh;
 }
 
@@ -45,8 +48,10 @@ body {
   margin-top: 0;
   font-size: 4rem;
   display: flex;
-  align-items: center;
   color: #bc6c25;
+  background-color: #fefae0;
+  padding: 20px;
+  border-radius: 50%;
 }
 
 .nav-header {
@@ -54,6 +59,15 @@ body {
   background-size: cover;
   border-radius: 20px;
 } 
+
+.nav-link {
+  font-size: 2rem;
+  color: #bc6c25;
+  text-decoration: none;
+  background-color: #fefae0;
+  padding: 20px;
+  border-radius: 50%;
+}
 
 
 
@@ -64,25 +78,12 @@ body {
   text-align: center;
   overflow: hidden;
   display: flex;
+  margin: 0 auto;
 }
 
 .slides {
   display: flex;
-  
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.slides::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-.slides::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 .slides {
@@ -113,21 +114,23 @@ img {
   height: 100%;
 }
 
-.slider a{
+.slide-container {
+  display: flex;
+  justify-content: center;
+}
+.slide-container a{
   display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #bc6c25;
   text-decoration: none;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   margin: 0 0 0.5rem 0;
-  position: relative;
+  
 }
-.slider > a:active {
-  top: 1px;
-}
-.slider > a:focus {
-  background: #000;
+
+.slide-container > a:focus {
+  background: #bc6c25;
 }
