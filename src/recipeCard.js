@@ -20,8 +20,10 @@ const RecipeCard = ({info}) => {
   return (
     <div className='recipe'>
       <h1>{info.recipe}</h1>
-      <button onClick={handleUpdate}>Edit recipe</button>
-      <button onClick={handleDelete}>Delete Recipe</button>
+      <div className='recipe-buttons'> 
+        <button onClick={handleUpdate}>Edit recipe</button>
+        <button onClick={handleDelete}>Delete Recipe</button>
+      </div>
     </div>
   )
 }

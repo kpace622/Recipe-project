@@ -10,18 +10,25 @@ import Slider from './slider';
 function App() {
   return (
     <div className="App">
-      <Route >
-        <div className='nav-header'>
-          <Navbar/>
-        </div>
-      </Route>
+      <div className='nav-header'>
+        <Navbar />
+      </div>
 
-      <Route >
-        <Recipe />
-        <Slider />
-      </Route>
+      <Route 
+        path='/home'
+        render={() => <Slider />}
+      />
 
-      <AddRecipe />
+      <Route 
+        path='/findRecipe'
+        render={() => <Recipe />}
+      />
+
+
+      <Route 
+        path='/addRecipe'
+        render={() => <AddRecipe />}
+      />
     </div>
   );
 }

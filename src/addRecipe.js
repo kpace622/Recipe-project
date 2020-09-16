@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {TextField, Button, withStyles} from '@material-ui/core';
 
 const initialForm = {
   recipe: ''
 }
+
+const StyledButton = withStyles({
+  root: {
+    background:  '#bc6c25'
+  }
+})(Button)
 
 const AddRecipe = () => {
   const [formValue, setFormValue] = useState(initialForm)
@@ -33,17 +40,18 @@ const AddRecipe = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='add-form' onSubmit={handleSubmit}>
       <h2>Add a recipe!</h2>
       <label>
-        <input 
+        <TextField 
         type='text'
         value={formValue.recipe}
         name='recipe'
         onChange={handleChange}
+        required
         />
       </label>
-      <button type='submit'>Add recipe</button>
+      <StyledButton variant='contained' type='submit'>Add recipe</StyledButton>
     </form>
   )
 }
