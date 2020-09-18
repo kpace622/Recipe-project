@@ -8,6 +8,7 @@ const RecipeCard = ({info}) => {
   }
 
   const handleDelete = recipe => {
+    console.log("button clicked")
     axios.delete(`https://kp-recipe-project.herokuapp.com/recipes/${recipe.id}`)
       .then(res => {
         console.log('recipe deleted')
@@ -22,7 +23,7 @@ const RecipeCard = ({info}) => {
       <h1>{info.recipe}</h1>
       <div className='recipe-buttons'> 
         <button onClick={handleUpdate}>Edit recipe</button>
-        <button onClick={handleDelete}>Delete Recipe</button>
+        <button onClick={() => handleDelete(info)}>Delete Recipe</button>
       </div>
     </div>
   )
