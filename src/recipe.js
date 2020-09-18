@@ -23,7 +23,7 @@ const Recipe = () => {
       <div className='recipe-container'>
         {recipes.map(item => {
           return ( 
-            <RecipeCard key={item.id} info={item}/>
+            <RecipeCard key={item.id} info={item} updateRecipe={setRecipes} recipes={recipes}/>
           )
         })}
       </div>

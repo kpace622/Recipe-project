@@ -1,10 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
-const RecipeCard = ({info}) => {
+const initialRecipe = {
+  recipe: ''
+};
 
-  const handleUpdate = () => {
-    
+const RecipeCard = ({info, updateRecipe, recipes}) => {
+  const [editRecipe, setEditRecipe] = useState(initialRecipe)
+  const [editing, setEditing] = useState(false)
+
+  const saveEdit = e => {
+    e.preventDefault();
+    axios.put(`https://kp-recipe-project.herokuapp.com/recipes/${editRecipe.id}`, editRecipe)
+    .then(res => {
+      updateRecipe([
+        ...recipes.filter(recipe => recipe.id !== editRecipe.id),
+        res.data
+      ])
+      setEditing(false)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  const handleUpdate = recipe => {
+    setEditing(true);
+    setEditRecipe(recipe)
   }
 
   const handleDelete = recipe => {
@@ -22,9 +44,24 @@ const RecipeCard = ({info}) => {
     <div className='recipe'>
       <h1>{info.recipe}</h1>
       <div className='recipe-buttons'> 
-        <button onClick={handleUpdate}>Edit recipe</button>
+        <button onClick={() => handleUpdate(info)}>Edit recipe</button>
         <button onClick={() => handleDelete(info)}>Delete Recipe</button>
       </div>
+      {editing && (
+        <form onSubmit={saveEdit}>
+          <label>
+            Recipe Name:
+            <input
+              onChange={e => setEditRecipe({ ...editRecipe, recipe: e.target.value})}
+              value={editRecipe.recipe}
+            />
+          </label>
+          <div>
+            <button type='submit'>Save changes</button>
+            <button onClick={() => setEditing(false)}>cancel</button>
+          </div>
+        </form>
+      )}
     </div>
   )
 }
