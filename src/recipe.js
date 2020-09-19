@@ -1,22 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import Axios from 'axios';
+import React from 'react';
 import RecipeCard from './recipeCard';
 
-const Recipe = () => {
-  const [ recipes, setRecipes ] = useState([]);
-
-  useEffect(() => {
-    console.log('test')
-    Axios
-      .get('https://kp-recipe-project.herokuapp.com/recipes')
-      .then(response => {
-        setRecipes(response.data);
-        
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+const Recipe = ({recipes, setRecipes}) => {
 
   return (
     <div className='main-container'>

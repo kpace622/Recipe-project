@@ -88,6 +88,16 @@ body {
   margin-top: 5%;
 }
 
+.recipe h1 {
+  color:  #bc6c25;
+  text-decoration: none;
+}
+
+.recipe-info {
+  display: flex;
+  justify-content: center;
+}
+
 /* Slider */
 
 .slider {

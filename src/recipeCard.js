@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {NavLink} from 'react-router-dom';
+
 
 const initialRecipe = {
   recipe: ''
@@ -42,11 +44,14 @@ const RecipeCard = ({info, updateRecipe, recipes}) => {
 
   return (
     <div className='recipe'>
-      <h1>{info.recipe}</h1>
+      <NavLink to={`/recipeInfo/${info.id}`} >
+        <h1>{info.recipe}</h1>
+      </NavLink>
       <div className='recipe-buttons'> 
         <button onClick={() => handleUpdate(info)}>Edit recipe</button>
         <button onClick={() => handleDelete(info)}>Delete Recipe</button>
       </div>
+
       {editing && (
         <form onSubmit={saveEdit}>
           <label>
