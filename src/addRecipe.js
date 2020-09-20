@@ -3,7 +3,9 @@ import axios from 'axios';
 import {TextField, Button, withStyles} from '@material-ui/core';
 
 const initialForm = {
-  recipe: ''
+  recipe: '',
+  instructions: '',
+  ingredients: ''
 }
 
 const StyledButton = withStyles({
@@ -42,7 +44,7 @@ const AddRecipe = () => {
   return (
     <form className='add-form' onSubmit={handleSubmit}>
       <h2>Add a recipe!</h2>
-      <label>
+      <label className='label' for='recipe'>Recipe Name:</label>
         <TextField 
         type='text'
         value={formValue.recipe}
@@ -50,7 +52,32 @@ const AddRecipe = () => {
         onChange={handleChange}
         required
         />
-      </label>
+        <br/>
+
+      <label className='label' for='instructions'>Recipe Directions:</label>
+        <TextField
+        multiline
+        rows={1}
+        max-rows={10}
+        type='text'
+        value={formValue.instructions}
+        name='instructions'
+        onChange={handleChange}
+        />
+        <br/>
+
+        <label className='label' for='ingredients'>Recipe Ingredients:</label>
+        <TextField
+        multiline
+        rows={1}
+        max-rows={10}
+        type='text'
+        value={formValue.ingredients}
+        name='ingredients'
+        onChange={handleChange}
+        />
+        <br/>
+      
       <StyledButton variant='contained' type='submit'>Add recipe</StyledButton>
     </form>
   )
