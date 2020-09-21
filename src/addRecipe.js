@@ -30,7 +30,9 @@ const AddRecipe = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const newRecipe = {
-      recipe: formValue.recipe
+      recipe: formValue.recipe,
+      ingredients: formValue.ingredients,
+      instructions: formValue.instructions
     }
     console.log(newRecipe)
     postNewRecipe(newRecipe)
