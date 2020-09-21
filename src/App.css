@@ -99,7 +99,14 @@ body {
 
 .recipe-info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.recipe-info hr {
+  width: 100%;
+  border-top: 2px solid #bc6c25;
 }
 
 .label {

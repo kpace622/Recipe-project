@@ -12,6 +12,11 @@ const RecipeInfo = ({recipes }) => {
         return (
           <div className='recipe-info'>
             <h1>{item.recipe}</h1>
+            <hr/>
+            <h2>Ingredients needed</h2>
+            <h3>{item.ingredients}</h3>
+            <h2>Instructions</h2>
+            <h3>{item.instructions}</h3>
           </div>
         )
       })}

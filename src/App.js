@@ -11,7 +11,6 @@ import Axios from 'axios';
 function App() {
   const [ recipes, setRecipes ] = useState([]);
 
-
   useEffect(() => {
     console.log('test')
     Axios
@@ -27,31 +26,31 @@ function App() {
 
   return (
     <div>
-    <div className="App">
-      <div className='nav-header'>
-        <Navbar />
+      <div className="App">
+        <div className='nav-header'>
+          <Navbar />
+        </div>
+
+        <Route 
+          exact path  ='/'
+          render={() => <Slider />}
+        />
+
+        <Route 
+          path='/findRecipe'
+          render={() => <Recipe recipes={recipes} setRecipes={setRecipes}/>}
+        />
+
+        <Route
+          path='/recipeInfo/:id'
+          render={() => <RecipeInfo recipes={recipes} />}
+        />
+
+        <Route 
+          path='/addRecipe'
+          render={() => <AddRecipe />}
+        />
       </div>
-
-      <Route 
-        exact path  ='/'
-        render={() => <Slider />}
-      />
-
-      <Route 
-        path='/findRecipe'
-        render={() => <Recipe recipes={recipes} setRecipes={setRecipes}/>}
-      />
-
-      <Route
-        path='/recipeInfo/:id'
-        render={() => <RecipeInfo recipes={recipes} />}
-      />
-
-      <Route 
-        path='/addRecipe'
-        render={() => <AddRecipe />}
-      />
-    </div>
     </div>
   );
 }
