@@ -15,10 +15,10 @@ function Login(props) {
   const login = e => {
     e.preventDefault();
     axiosWithAuth().post('https://kp-recipe-project.herokuapp.com/auth/register', credentials)
-      .then(res => {
-        localStorage.setItem('token', res.data.token);
-        // props.history.push('/');
-      })
+      // .then(res => {
+      //   localStorage.setItem('token', res.data.token);
+      //   // props.history.push('/');
+      // })
   }
 
   const handleChange = e => {
