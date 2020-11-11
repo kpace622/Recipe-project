@@ -6,6 +6,8 @@ import AddRecipe from './addRecipe';
 import { Route } from 'react-router-dom';
 import Slider from './slider';
 import RecipeInfo from './recipeInfo';
+import Login from './auth/login';
+import Signup from './auth/signup';
 import Axios from 'axios';
 
 function App() {
@@ -22,7 +24,6 @@ function App() {
         console.log(err)
       })
   }, [])
-
 
   return (
     <div>
@@ -49,6 +50,15 @@ function App() {
         <Route 
           path='/addRecipe'
           render={() => <AddRecipe />}
+        />
+        <Route
+          path='/login'
+          render={() => <Login />}
+        />
+
+        <Route
+          path='/signup'
+          render={() => <Signup />}
         />
       </div>
     </div>

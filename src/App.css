@@ -47,6 +47,7 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 50vh;
+  flex-wrap: wrap;
 }
 
 
@@ -77,10 +78,28 @@ body {
   background-color: #fefae0;
   padding: 20px;
   border-radius: 50%;
+  text-align: center;
 }
 
 .form-button {
    color:  #bc6c25;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.login-text {
+  margin-bottom: 20px;
+}
+
+.sign-up {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .add-form {
@@ -126,8 +145,6 @@ body {
 .home-container h2 {
   margin-top: 3%;
 }
-
-
 
 /* Slider */
 
