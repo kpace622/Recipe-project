@@ -14,7 +14,7 @@ function Login(props) {
 
   const login = e => {
     e.preventDefault();
-    axiosWithAuth().post('login/endpoint', credentials)
+    axiosWithAuth().post('https://kp-recipe-project.herokuapp.com/auth/register', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.token);
         // props.history.push('/');
