@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { axiosWithAuth } from './axiosWithAuth';
 import {NavLink} from 'react-router-dom';
 import {TextField, Button, withStyles} from '@material-ui/core';
+import axios from 'axios'
 
 const StyledButton = withStyles({
   root: {
@@ -14,9 +15,10 @@ function Login(props) {
 
   const login = e => {
     e.preventDefault();
-    axiosWithAuth().post('https://kp-recipe-project.herokuapp.com/auth/login', credentials)
+    axios.post('https://kp-recipe-project.herokuapp.com/auth/login', credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.token);
+        console.log(res)
+        localStorage.setItem('token', res.data.jwt_token);
         // props.history.push('/');
       })
   }
@@ -46,7 +48,7 @@ function Login(props) {
             onChange={handleChange}
           />
           <br/>
-          <StyledButton>Log in</StyledButton>
+          <StyledButton type='submit'>Log in</StyledButton>
           <NavLink className='nav-link sign-up' to='/signup'>Don't have an account? Sign up!</NavLink> 
         </form>
       </div>

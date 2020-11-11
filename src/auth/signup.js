@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { axiosWithAuth } from './axiosWithAuth';
 import {TextField, Button, withStyles} from '@material-ui/core';
 import {NavLink} from 'react-router-dom';
+import axios from 'axios';
 
 const StyledButton = withStyles({
   root: {
@@ -12,13 +13,16 @@ const StyledButton = withStyles({
 function Login(props) {
  const [credentials, setCredentials] = useState({});
 
-  const login = e => {
+  const register = e => {
     e.preventDefault();
-    axiosWithAuth().post('https://kp-recipe-project.herokuapp.com/auth/register', credentials)
+    axios.post('https://kp-recipe-project.herokuapp.com/auth/register', credentials)
       // .then(res => {
       //   localStorage.setItem('token', res.data.token);
       //   // props.history.push('/');
       // })
+      .then(res => {
+        console.log(res)
+      })
   }
 
   const handleChange = e => {
@@ -27,7 +31,7 @@ function Login(props) {
 
   return (
     <div>
-      <form className='login-form' onSubmit={login}>
+      <form className='login-form' onSubmit={register}>
         <label className='label' for='username'>username:</label>
         <TextField
           className='login-text'
@@ -46,7 +50,7 @@ function Login(props) {
           onChange={handleChange}
         />
         <br/>
-        <StyledButton>Sign Up</StyledButton>
+        <StyledButton type='submit'>Sign Up</StyledButton>
         <NavLink className='nav-link sign-up' to='/login'>Already have an account? Login!</NavLink> 
       </form>
     </div>

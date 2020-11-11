@@ -14,7 +14,6 @@ function App() {
   const [ recipes, setRecipes ] = useState([]);
 
   useEffect(() => {
-    console.log('test')
     Axios
       .get('https://kp-recipe-project.herokuapp.com/recipes')
       .then(response => {    
