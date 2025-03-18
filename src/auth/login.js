@@ -24,7 +24,7 @@ function Login(props) {
   }
 
   const handleChange = e => {
-    setCredentials({...credentials, [e.target.name]: e.target.value})
+    setCredentials(e.target.value)
   }
 
     return (
