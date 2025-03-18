@@ -24,9 +24,9 @@ function Login(props) {
   }
 
   const handleChange = e => {
-    setCredentials(e.target.value)
+    setCredentials({...credentials, [e.target.name]: e.target.value})
   }
-
+v
     return (
       <div>
         <form className='login-form' onSubmit={login}>
