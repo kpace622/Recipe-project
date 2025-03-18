@@ -24,7 +24,7 @@ function Login(props) {
   }
 
   const handleChange = e => {
-    setCredentials({...credentials, [e.target.name]: e.target.value})
+    setCredentials(e.target.value)
   }
 
     return (
@@ -42,7 +42,7 @@ function Login(props) {
           <label className='label' for='password'>password:</label>
           <TextField
             className='login-text'
-            type="password"
+            type="text"
             name="password"
             value={credentials.password}
             onChange={handleChange}
