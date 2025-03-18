@@ -5,30 +5,6 @@ body {
   font-family: 'Indie Flower', cursive;
 }
 
-.recipe-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.recipe {
-  border: 1px solid black;
-  background-color: white;
-  padding: 5px 30px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  justify-content: space-between;
-  border-radius: 20px;
-  width: 20%;
-  text-align: center;
-  padding-bottom: 10px;
-  box-shadow: 4px 4px  #bc6c25;
-}
-
 .recipe button{
   width: 50%;
   background-color: #bc6c25;
